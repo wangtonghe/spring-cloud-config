@@ -1,0 +1,25 @@
+eureka:
+  client:
+    service-url:
+       defaultZone: http://localhost:8761/eureka
+zuul:
+  routes:
+     api-a:
+       path: /api/a/**
+       serviceId: service-ribbon
+     api-b:
+       path: /api/b/**
+       serviceId: service-feign
+server:
+  port: 8768
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+    name: service-zuul
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
